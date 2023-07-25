@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enable/Disable Video</title>
+  </head>
+  <body>
+    <video id="video" controls>
+      <source src="tate.mp4" type="video/mp4" />
+    </video>
+
+    <script>
+      const videoElement = document.getElementById("video");
+
+      videoElement.addEventListener("mouseover", () => {
+        videoElement.play();
+      });
+
+      videoElement.addEventListener("mouseout", () => {
+        videoElement.pause();
+      });
+    </script>
+  </body>
+</html>

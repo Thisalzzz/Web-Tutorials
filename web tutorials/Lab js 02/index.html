@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mathematical Operations</title>
+  </head>
+  <body>
+    <button onclick="performMathOperations()">Perform Math Operations</button>
+
+    <script>
+      function performMathOperations() {
+        const num1 = parseFloat(prompt("Enter the first number:"));
+        const num2 = parseFloat(prompt("Enter the second number:"));
+        const sign = prompt("Enter the operation sign (+, -, *, /):");
+
+        if (isNaN(num1) || isNaN(num2) || !isSignValid(sign)) {
+          alert(
+            "Invalid input. Please enter valid numbers and a valid operation sign (+, -, *, /)."
+          );
+        } else {
+          let result;
+
+          switch (sign) {
+            case "+":
+              result = num1 + num2;
+              break;
+            case "-":
+              result = num1 - num2;
+              break;
+            case "*":
+              result = num1 * num2;
+              break;
+            case "/":
+              result =
+                num2 !== 0 ? num1 / num2 : "Division by zero is not allowed.";
+              break;
+            default:
+              result = "Invalid operation sign.";
+              break;
+          }
+
+          alert("Result: " + result);
+        }
+      }
+
+      function isSignValid(sign) {
+        return sign === "+" || sign === "-" || sign === "*" || sign === "/";
+      }
+    </script>
+  </body>
+</html>

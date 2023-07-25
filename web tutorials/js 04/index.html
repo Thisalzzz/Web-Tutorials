@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Date and Time Display</title>
+  </head>
+  <body>
+    <div>
+      <p>Date and Time: <span id="dateTime"></span></p>
+    </div>
+
+    <script>
+      function displayDateTime() {
+        const dateTimeElement = document.getElementById("dateTime");
+        const now = new Date();
+        dateTimeElement.textContent = now.toLocaleString();
+      }
+
+      displayDateTime();
+
+      setInterval(displayDateTime, 1000);
+    </script>
+  </body>
+</html>

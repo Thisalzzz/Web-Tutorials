@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Popup Box Example</title>
+  </head>
+  <body>
+    <button onclick="showPopup()">Show Popup</button> <br />
+    <br />
+    <button onclick="marks()">Input Marks</button>
+    <button onclick="calculateGrades()">Calculate Grade</button><br />
+    <br />
+    <button onmouseover="changeBackgroundColor('red')">Red</button>
+    <button onmouseover="changeBackgroundColor('green')">Green</button>
+    <button onmouseover="changeBackgroundColor('blue')">Blue</button><br />
+    <br />
+    <button onclick="calculateArea()">Calculate Circle Area</button>
+
+    <script>
+      function showPopup() {
+        alert("This is an alert");
+      }
+
+      let final_marks = 0;
+      let average = 0;
+
+      function marks() {
+        final_marks = prompt("Input marks");
+        final_marks = parseFloat(final_marks);
+        average = final_marks / 5;
+        document.write("Sum: ", final_marks, "<br>");
+        document.write("Average: ", average, "<br>");
+      }
+
+      function calculateGrades() {
+        const grade = getGrade(average);
+        alert("Grade: " + grade);
+      }
+
+      function getGrade(avg) {
+        if (avg < 30) {
+          return "You passed";
+        } else {
+          return "You failed";
+        }
+      }
+
+      function changeBackgroundColor(color) {
+        document.body.style.backgroundColor = color;
+      }
+
+      function calculateArea() {
+        const radius = prompt("Enter the radius of the circle:");
+
+        const numericRadius = parseFloat(radius);
+
+        if (isNaN(numericRadius) || numericRadius <= 0) {
+          alert(
+            "Invalid input. Please enter a valid positive number for the radius."
+          );
+        } else {
+          const area = Math.PI * Math.pow(numericRadius, 2);
+
+          const roundedArea = area.toFixed(2);
+
+          alert(
+            "The area of the circle with radius " +
+              numericRadius +
+              " is: " +
+              roundedArea
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

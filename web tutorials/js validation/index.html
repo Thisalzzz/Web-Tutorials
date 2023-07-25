@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+    <style>
+      /* Your existing CSS styles for the form go here */
+    </style>
+  </head>
+  <body>
+    <h2>Registration Form</h2>
+    <form onsubmit="return validateForm()">
+      <!-- Your existing form fields go here -->
+
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required /><br />
+
+      <!-- Rest of the form fields go here -->
+
+      <input type="submit" value="Register" />
+    </form>
+
+    <script>
+      function validateForm() {
+        // Check all input boxes for empty values
+        if (
+          isEmpty("firstName") ||
+          isEmpty("lastName") ||
+          isEmpty("username") ||
+          isEmpty("password") ||
+          isEmpty("gender") ||
+          isEmpty("academicYear") ||
+          isEmpty("email") ||
+          isEmpty("phoneNumber") ||
+          isEmpty("day") ||
+          isEmpty("month") ||
+          isEmpty("year")
+        ) {
+          alert("Error: Input is empty!");
+          return false;
+        }
+
+        // Validate Email address
+        const email = document.getElementById("email").value;
+        if (!isValidEmail(email)) {
+          alert("Error: Invalid Email address!");
+          return false;
+        }
+
+        // Validate Phone number
+        const phoneNumber = document.getElementById("phoneNumber").value;
+        if (!isValidPhoneNumber(phoneNumber)) {
+          alert("Error: Invalid Phone number!");
+          return false;
+        }
+
+        // Validate password confirmation
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+        if (password !== confirmPassword) {
+          alert("Error: Passwords do not match!");
+          return false;
+        }
+
+        return true; // Submit the form if all validations pass
+      }
+
+      function isEmpty(inputId) {
+        const input = document.getElementById(inputId).value;
+        return input.trim() === "";
+      }
+
+      function isValidEmail(email) {
+        return /\S+@\S+\.\S+/.test(email);
+      }
+
+      function isValidPhoneNumber(phoneNumber) {
+        return /^\d{10}$/.test(phoneNumber);
+      }
+    </script>
+  </body>
+</html>
